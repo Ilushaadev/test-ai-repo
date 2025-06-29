@@ -1,0 +1,20 @@
+def get_user_email(user):
+    return user.get("email", None)
+
+def is_admin(user):
+    return user.get("role") == "admin"
+
+def get_user_profile_summary(user):
+    """
+    Returns a string summary of the user profile.
+    Includes name, email, role and active status.
+    """
+    if not isinstance(user, dict):
+        raise TypeError("User must be a dictionary")
+
+    name = f"{user.get('first_name', '')} {user.get('last_name', '')}".strip()
+    email = user.get("email", "N/A")
+    role = user.get("role", "user")
+    active = "active" if user.get("is_active", False) else "inactive"
+
+    return f"{name} ({email}) - {role} [{active}]"
