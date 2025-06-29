@@ -35,3 +35,41 @@ def calculate_statistics(numbers):
         "max": max_val,
         "is_all_positive": all_positive
     }
+
+    def analyze_word_lengths(words):
+    """
+    Given a list of strings, returns statistics about word lengths:
+    - total_words
+    - shortest_word
+    - longest_word
+    - average_length
+    - all_uppercase (True if all words are uppercase)
+    """
+    if not isinstance(words, list):
+        raise TypeError("Input must be a list")
+
+    if not all(isinstance(w, str) for w in words):
+        raise ValueError("All items must be strings")
+
+    if not words:
+        return {
+            "total_words": 0,
+            "shortest_word": "",
+            "longest_word": "",
+            "average_length": 0,
+            "all_uppercase": False
+        }
+
+    total = len(words)
+    shortest = min(words, key=len)
+    longest = max(words, key=len)
+    average = sum(len(w) for w in words) / total
+    all_upper = all(w.isupper() for w in words)
+
+    return {
+        "total_words": total,
+        "shortest_word": shortest,
+        "longest_word": longest,
+        "average_length": average,
+        "all_uppercase": all_upper
+    }
