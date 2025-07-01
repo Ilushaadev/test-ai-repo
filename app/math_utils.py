@@ -111,3 +111,16 @@ def analyze_character_frequencies(text):
         "least_common_char": least_common,
         "is_all_alpha": all_alpha
     }
+def analyze_word_lengths_test(words):
+    """
+    Given a list of strings, returns statistics about word lengths:
+    - total_words
+    - shortest_word
+    - longest_word
+    - average_length
+    - all_uppercase (True if all words are uppercase)
+    """
+    if not isinstance(words, list):
+        raise TypeError("Input must be a list")
+    else:
+        return "Test"
