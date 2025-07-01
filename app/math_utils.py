@@ -130,3 +130,18 @@ def analyze_word_lengths_test(words):
 def test(ilya = "test"):
     new = ilya
     return print(f'{new}')
+
+
+def analyze_word_new(words):
+    """
+    Given a list of strings, returns statistics about word lengths:
+    - total_words
+    - shortest_word
+    - longest_word
+    - average_length
+    - all_uppercase (True if all words are uppercase)
+    """
+    if not isinstance(words, list):
+        raise TypeError("Input must be a list")
+    else:
+        return "Test2"
