@@ -127,5 +127,6 @@ def analyze_word_lengths_test(words):
     else:
         return "Test"
 
-def test():
-    return print("hello")
+def test(ilya = "test"):
+    new = ilya
+    return print(f'{new}')
