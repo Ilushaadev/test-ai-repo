@@ -132,7 +132,7 @@ def test(ilya = "test"):
     return print(f'{new}')
 
 
-def analyze_word_new(words):
+def analyze_word(words):
     """
     Given a list of strings, returns statistics about word lengths:
     - total_words
@@ -144,4 +144,4 @@ def analyze_word_new(words):
     if not isinstance(words, list):
         raise TypeError("Input must be a list")
     else:
-        return "Test2"
+        return "Test3"
