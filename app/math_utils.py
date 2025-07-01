@@ -147,10 +147,10 @@ def analyze_word(wordy):
         return "Test3"
 
 
-def test2(ilya = "test2"):
+def test2(ilya = "test22"):
     new = ilya
     return print(f'{new}')
 
-def test3(ilya = "test2"):
+def test3(ilya = "test23"):
     new = ilya
     return print(f'{new}')
