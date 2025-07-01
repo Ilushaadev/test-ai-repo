@@ -111,6 +111,8 @@ def analyze_character_frequencies(text):
         "least_common_char": least_common,
         "is_all_alpha": all_alpha
     }
+
+
 def analyze_word_lengths_test(words):
     """
     Given a list of strings, returns statistics about word lengths:
@@ -124,3 +126,6 @@ def analyze_word_lengths_test(words):
         raise TypeError("Input must be a list")
     else:
         return "Test"
+
+def test():
+    return print("hello")
