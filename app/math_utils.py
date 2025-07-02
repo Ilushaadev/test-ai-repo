@@ -151,6 +151,6 @@ def test2(ilya = "test22ss2s2s"):
     new = ilya
     return print(f'{new}')
 
-def test3(ilya = "tests2ss"):
+def test3(ilya = "tests2sss"):
     new = ilya
     return print(f'{new}')
