@@ -16,6 +16,9 @@ def get_user_profile_summary(user):
     return f"{name} ({email}) - {role} [{active}]"
 
 def is_user_new():
+    """
+    is_admin responsible for checking which user is admin
+    """
     new_user = 0
     if new_user != 0:
         print("new user added")
