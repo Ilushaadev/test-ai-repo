@@ -15,7 +15,7 @@ def get_user_profile_summary(user):
 
     return f"{name} ({email}) - {role} [{active}]"
 
-def is_user_new():
+def is_new_user():
     """
     is_admin responsible for checking which user is admin
     """
