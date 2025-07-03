@@ -19,6 +19,6 @@ def is_user_new():
     """
     is_admin responsible for checking which user is admin
     """
-    new_user = 0
-    if new_user != 0:
+    new_user = 1
+    if new_user != 1:
         print("new user added")
