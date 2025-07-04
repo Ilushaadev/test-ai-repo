@@ -5,10 +5,6 @@ def is_admin(user):
     return user.get("role") == "admin"
 
 def get_user_profile_summary(user):
-    """
-    Returns a string summary of the user profile.
-    Includes name, email, role and active status.
-    """
     if not isinstance(user, dict):
         raise TypeError("User must be a dictionary")
 
@@ -18,3 +14,11 @@ def get_user_profile_summary(user):
     active = "active" if user.get("is_active", False) else "inactive"
 
     return f"{name} ({email}) - {role} [{active}]"
+
+def is_new_user():
+    """
+    is_admin responsible for checking which user is admin
+    """
+    new_user = 1
+    if new_user != 1:
+        print("new user added")
