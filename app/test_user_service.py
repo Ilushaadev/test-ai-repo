@@ -28,3 +28,6 @@ def test_nothing():
     this is a test
     """
     return "Hello"
+
+def new_func():
+    print("new func")
