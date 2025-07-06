@@ -21,3 +21,7 @@ def test_non_dict_input_raises():
     """Non-dict input raises TypeError. """
     with pytest.raises(TypeError):
         get_user_profile_summary("notadict")
+
+
+def test_nothing():
+    return "Hello"
