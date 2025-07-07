@@ -42,5 +42,5 @@ def calculate_somthing():
 def calculate_somthing4():
     return print("test4")
 
-def calculate_somthing3():
+def calculate_somthing2():
     return print("test4")
