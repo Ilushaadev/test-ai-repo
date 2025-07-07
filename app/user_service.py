@@ -19,7 +19,7 @@ def get_user_profile_summary(user):
 
     return f"{name} ({email}) - {role} [{active}]"
 
-def new_user_created6():
+def new_user_created1():
     new_user = 1
     if new_user != 0:
         return print("new user created")
