@@ -18,3 +18,8 @@ def get_user_profile_summary(user):
     active = "active" if user.get("is_active", False) else "inactive"
 
     return f"{name} ({email}) - {role} [{active}]"
+
+def check_new_user_created():
+    new_user = 0
+    if new_user != 0:
+        return print("new user created")

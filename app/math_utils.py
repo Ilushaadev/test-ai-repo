@@ -35,3 +35,9 @@ def calculate_statistics(numbers):
         "max": max_val,
         "is_all_positive": all_positive
     }
+
+def calculate_somthing():
+    return print("test")
+
+def calculate_somthing2():
+    return print("test")
