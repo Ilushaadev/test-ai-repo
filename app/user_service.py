@@ -22,4 +22,4 @@ def get_user_profile_summary(user):
 def check_new_user_created():
     new_user = 0
     if new_user != 0:
-        return print("new user created")
+        return print("new users created")
