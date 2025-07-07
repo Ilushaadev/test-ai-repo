@@ -39,5 +39,5 @@ def calculate_statistics(numbers):
 def calculate_somthing():
     return print("test")
 
-def calculate_somthing2():
-    return print("test2")
+def calculate_somthing4():
+    return print("test4")
