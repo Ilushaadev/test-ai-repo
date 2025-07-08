@@ -1,3 +1,18 @@
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+app = FastAPI()
+
+
+fake_db = {
+    "alice": {"name": "Alice", "email": "alice@example.com"},
+    "bob": {"name": "Bob", "email": "bob@example.com"},
+}
+
+class UserRequest(BaseModel):
+    username: str
+
+
 def get_user_email(user):
     return user.get("email", None)
 
@@ -23,3 +38,16 @@ def new_user_created5222():
     new_user = 1
     if new_user != 0:
         return print("new user created1332")
+
+def new_users_list():
+    user_list = []
+    if user_list:
+        print("user list is not empty")
+
+
+@app.post("/get-user")
+def get_user(data: UserRequest):
+    user = fake_db.get(data.username.lower())
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user
