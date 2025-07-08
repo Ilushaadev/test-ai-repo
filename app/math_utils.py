@@ -40,7 +40,7 @@ def calculate_somthing():
     return print("test")
 
 def calculate_somthing4():
-    return print("test4")
+    return print("test41")
 
 def calculate_somthing1222():
-    return print("test4")
+    return print("test2")
