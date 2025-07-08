@@ -51,3 +51,4 @@ def get_user(data: UserRequest):
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
     return user
+
