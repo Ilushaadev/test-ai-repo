@@ -22,4 +22,4 @@ def get_user_profile_summary(user):
 def new_user_created5222():
     new_user = 1
     if new_user != 0:
-        return print("new user created12")
+        return print("new user created1332")
