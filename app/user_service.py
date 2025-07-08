@@ -52,3 +52,10 @@ def get_user(data: UserRequest):
         raise HTTPException(status_code=404, detail="User not found")
     return user
 
+
+@app.post("/get-user")
+def get_old_user(data: UserRequest):
+    user = fake_db.get(data.username.lower())
+    if not user:
+        raise HTTPException(status_code=401, detail="Old User not found")
+    return user
