@@ -66,3 +66,4 @@ def get_user_list(data: UserRequest):
     if not user:
         raise HTTPException(status_code=401, detail="User List not found")
     return user
+
