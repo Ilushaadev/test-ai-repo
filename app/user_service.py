@@ -58,10 +58,15 @@ def get_user_role(user_dict):
 def should_user_be_active(user_active):
     return user_active == "active"
 
-def should_user_be_admin(is_user_admin):
-    user = fake_db.get(data.username.lower())
-    if is_user_admin == "active" & "admin":
-      return user
+def should_user_be_admin(user: dict) -> bool:
+    return user.get("is_active") == True and user.get("role") == "admin"
+
+def has_access_to_feature(user: dict, feature_flag: str) -> bool:
+    """
+    Returns True if the user has the requested feature enabled.
+    """
+    features = user.get("features", [])
+    return feature_flag in features
 
 @app.post("/get-user")
 def get_user(data: UserRequest):
