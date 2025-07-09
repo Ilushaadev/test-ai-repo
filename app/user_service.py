@@ -11,6 +11,7 @@ fake_db = {
 
 class UserRequest(BaseModel):
     username: str
+    usertoken: int
 
 
 def get_user_email(user):
@@ -67,3 +68,10 @@ def get_user_list(data: UserRequest):
         raise HTTPException(status_code=401, detail="User List not found")
     return user
 
+
+@app.post("/get-user-token")
+def get_user_list(data: UserRequest):
+    user = fake_db.get(data.usertoken.lower())
+    if not user:
+        raise HTTPException(status_code=404, detail="User token not found")
+    return user
