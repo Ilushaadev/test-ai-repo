@@ -14,6 +14,7 @@ class UserRequest(BaseModel):
     usertoken: int
     log: str
     external_log: str
+    cloud_db: str
 
 
 
@@ -201,4 +202,11 @@ def post_get_user_test(data: UserRequest):
     user = fake_db.get(data.external_log.lower())
     if not user:
         raise HTTPException(status_code=404, detail="User external AWS log not found")
+    return user
+
+@app.post("/post-data-to-cloud")
+def sync_data_to_cloud(data: UserRequest):
+    user = fake_db.get(data.cloud_db.lower())
+    if not user:
+        raise HTTPException(status_code=404, detail="Failed to send data")
     return user

@@ -3,6 +3,7 @@ from app.math_utils import add, multiply
 
 class userData():
     user_age: int
+    user_agree: bool
 
 
 def test_add():
@@ -78,6 +79,13 @@ def calculate_user_age():
     if userData.user_age < 18:
         send_error_msg_to_user()
 
+def send_user_welcome_msg():
+    return print("Welcome User")
+
+def calculate_user_agreement():
+    if userData.user_agree == "True":
+        send_user_welcome_msg()
+
 
 @app.post("/get-user-password")
 def get_user_math_data(data: UserRequest):
@@ -103,6 +111,14 @@ def get_data_of_user(data: UserRequest):
 
 @app.post("/post-users-data")
 def post_user_data_to_aws_log(data: UserRequest):
+    user = fake_db.get(data.username.lower())
+    if not user:
+        raise HTTPException(status_code=401, detail="User data not found")
+    return user
+
+
+@app.post("/post-users-data-to-gcp-db")
+def put_user_logs_to_gcp_data(data: UserRequest):
     user = fake_db.get(data.username.lower())
     if not user:
         raise HTTPException(status_code=401, detail="User data not found")
