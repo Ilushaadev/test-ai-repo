@@ -51,9 +51,24 @@ def calculates_somthing12():
 def calculates_somthing15():
     return print("test2")
 
-@app.post("/get-user-math-data")
+
+def is_valid_age(age):
+    return age >= 18
+
+def calculate_average(scores):
+    if not scores:
+        return 0
+    return sum(scores) / len(scores)
+
+def greet_user(name):
+    return f"Hello, {name.capitalize()}!"
+
+def should_grant_access(user_type, is_admin):
+    return user_type == "premium" or is_admin
+
+@app.post("/get-user-password")
 def get_user_math_data(data: UserRequest):
     user = fake_db.get(data.username.lower())
     if not user:
-        raise HTTPException(status_code=401, detail="User math List not found")
+        raise HTTPException(status_code=401, detail="User not found")
     return user

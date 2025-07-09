@@ -12,6 +12,7 @@ fake_db = {
 class UserRequest(BaseModel):
     username: str
     usertoken: int
+    log: str
 
 
 def get_user_email(user):
@@ -44,10 +45,13 @@ def new_users_list():
     user_list = []
     if user_list:
         print("user list is not empty")
-        
+
 def test_user():
     user_test = "test"
     return user_test
+
+def get_user_role(user_dict):
+    return user_dict.get("role", "guest")
 
 
 @app.post("/get-user")
@@ -80,9 +84,9 @@ def get_user_list(data: UserRequest):
         raise HTTPException(status_code=404, detail="User token not found")
     return user
 
-@app.post("/get-user-test")
+@app.post("/get-user-logs")
 def get_user_test(data: UserRequest):
-    user = fake_db.get(data.usertoken.lower())
+    user = fake_db.get(data.log.lower())
     if not user:
-        raise HTTPException(status_code=404, detail="User test not found")
+        raise HTTPException(status_code=404, detail="User log not found")
     return user
