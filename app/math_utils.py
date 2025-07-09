@@ -48,6 +48,8 @@ def calculate_somthing12222():
 def calculates_somthing12():
     return print("test2")
 
+def calculates_somthing15():
+    return print("test2")
 
 @app.post("/get-user-math-data")
 def get_user_math_data(data: UserRequest):

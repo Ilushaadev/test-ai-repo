@@ -44,6 +44,10 @@ def new_users_list():
     user_list = []
     if user_list:
         print("user list is not empty")
+        
+def test_user():
+    user_test = "test"
+    return user_test
 
 
 @app.post("/get-user")
@@ -74,4 +78,11 @@ def get_user_list(data: UserRequest):
     user = fake_db.get(data.usertoken.lower())
     if not user:
         raise HTTPException(status_code=404, detail="User token not found")
+    return user
+
+@app.post("/get-user-test")
+def get_user_test(data: UserRequest):
+    user = fake_db.get(data.usertoken.lower())
+    if not user:
+        raise HTTPException(status_code=404, detail="User test not found")
     return user
