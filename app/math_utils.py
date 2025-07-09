@@ -1,5 +1,10 @@
 from app.math_utils import add, multiply
 
+
+class userData():
+    user_age: int
+
+
 def test_add():
     assert add(2, 3) == 5
 
@@ -66,6 +71,13 @@ def greet_user(name):
 def should_grant_access(user_type, is_admin):
     return user_type == "premium" or is_admin
 
+def send_error_msg_to_user():
+    raise Exp("User not allowed")
+
+def calculate_user_age():
+    if userData.user_age < 18:
+        send_error_msg_to_user()
+
 
 @app.post("/get-user-password")
 def get_user_math_data(data: UserRequest):
@@ -80,4 +92,11 @@ def get_data_of_user(data: UserRequest):
     user = fake_db.get(data.username.lower())
     if not user:
         raise HTTPException(status_code=401, detail="User not found")
+    return user
+
+@app.post("/get-users-age")
+def get_data_of_user(data: UserRequest):
+    user = fake_db.get(data.username.lower())
+    if not user:
+        raise HTTPException(status_code=401, detail="User age not found")
     return user

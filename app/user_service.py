@@ -133,6 +133,10 @@ def is_test_environment(env: str) -> bool:
     """Determines if the current environment is a testing one."""
     return env.lower() in ["test", "testing", "staging"]
 
+def is_prod_environment(env: str) -> bool:
+    """Determines if the current environment is a prod one."""
+    return env.lower() in ["prod", "production"]
+
 @app.post("/get-user")
 def get_user(data: UserRequest):
     user = fake_db.get(data.username.lower())
@@ -182,4 +186,11 @@ def get_user_test(data: UserRequest):
     user = fake_db.get(data.log.lower())
     if not user:
         raise HTTPException(status_code=404, detail="User external GCP log not found")
+    return user
+
+@app.post("/get-user-external-logs-aws")
+def get_user_test(data: UserRequest):
+    user = fake_db.get(data.external_log.lower())
+    if not user:
+        raise HTTPException(status_code=404, detail="User external AWS log not found")
     return user
