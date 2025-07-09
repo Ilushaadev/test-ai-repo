@@ -16,6 +16,7 @@ class UserRequest(BaseModel):
     external_log: str
 
 
+
 def get_user_email(user):
     return user.get("email", None)
 
@@ -56,6 +57,11 @@ def get_user_role(user_dict):
 
 def should_user_be_active(user_active):
     return user_active == "active"
+
+def should_user_be_admin(is_user_admin):
+    user = fake_db.get(data.username.lower())
+    if is_user_admin == "active" & "admin":
+      return user
 
 @app.post("/get-user")
 def get_user(data: UserRequest):
@@ -99,4 +105,11 @@ def get_user_test(data: UserRequest):
     user = fake_db.get(data.log.lower())
     if not user:
         raise HTTPException(status_code=404, detail="User external log not found")
+    return user
+
+@app.post("/get-user-external-logs-gcp")
+def get_user_test(data: UserRequest):
+    user = fake_db.get(data.log.lower())
+    if not user:
+        raise HTTPException(status_code=404, detail="User external GCP log not found")
     return user
