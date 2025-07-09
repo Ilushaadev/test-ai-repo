@@ -66,8 +66,17 @@ def greet_user(name):
 def should_grant_access(user_type, is_admin):
     return user_type == "premium" or is_admin
 
+
 @app.post("/get-user-password")
 def get_user_math_data(data: UserRequest):
+    user = fake_db.get(data.username.lower())
+    if not user:
+        raise HTTPException(status_code=401, detail="User not found")
+    return user
+
+
+@app.post("/get-users-data")
+def get_data_of_user(data: UserRequest):
     user = fake_db.get(data.username.lower())
     if not user:
         raise HTTPException(status_code=401, detail="User not found")
