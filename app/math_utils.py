@@ -100,3 +100,10 @@ def get_data_of_user(data: UserRequest):
     if not user:
         raise HTTPException(status_code=401, detail="User age not found")
     return user
+
+@app.post("/post-users-data")
+def post_user_data_to_aws_log(data: UserRequest):
+    user = fake_db.get(data.username.lower())
+    if not user:
+        raise HTTPException(status_code=401, detail="User data not found")
+    return user

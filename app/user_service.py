@@ -137,6 +137,14 @@ def is_prod_environment(env: str) -> bool:
     """Determines if the current environment is a prod one."""
     return env.lower() in ["prod", "production"]
 
+def is_user_in_environment(env: str) -> bool:
+    """Determines if the user exists in the environment."""
+    return env.lower() in ["prod", "production", "staging"]
+
+def check_if_data_exists(user: str) -> bool:
+    return user in ["test", "aws", "gcp"]
+
+
 @app.post("/get-user")
 def get_user(data: UserRequest):
     user = fake_db.get(data.username.lower())
@@ -152,13 +160,6 @@ def get_old_user(data: UserRequest):
         raise HTTPException(status_code=401, detail="Old User not found")
     return user
 
-@app.post("/get-user-list")
-def get_user_list(data: UserRequest):
-    user = fake_db.get(data.username.lower())
-    if not user:
-        raise HTTPException(status_code=401, detail="User List not found")
-    return user
-
 
 @app.post("/get-user-token")
 def get_user_list(data: UserRequest):
@@ -168,28 +169,35 @@ def get_user_list(data: UserRequest):
     return user
 
 @app.post("/get-user-logs")
-def get_user_test(data: UserRequest):
+def get_user_logs(data: UserRequest):
     user = fake_db.get(data.log.lower())
     if not user:
         raise HTTPException(status_code=404, detail="User log not found")
     return user
 
 @app.post("/get-user-external-logs")
-def get_user_test(data: UserRequest):
+def get_user_external_logs(data: UserRequest):
     user = fake_db.get(data.log.lower())
     if not user:
         raise HTTPException(status_code=404, detail="User external log not found")
     return user
 
 @app.post("/get-user-external-logs-gcp")
-def get_user_test(data: UserRequest):
+def get_user_external_logs_gcp(data: UserRequest):
     user = fake_db.get(data.log.lower())
     if not user:
         raise HTTPException(status_code=404, detail="User external GCP log not found")
     return user
 
 @app.post("/get-user-external-logs-aws")
-def get_user_test(data: UserRequest):
+def get_user_external_logs_aws(data: UserRequest):
+    user = fake_db.get(data.external_log.lower())
+    if not user:
+        raise HTTPException(status_code=404, detail="User external AWS log not found")
+    return user
+
+@app.post("/post-user-external-logs-aws")
+def post_get_user_test(data: UserRequest):
     user = fake_db.get(data.external_log.lower())
     if not user:
         raise HTTPException(status_code=404, detail="User external AWS log not found")
