@@ -15,6 +15,7 @@ class UserRequest(BaseModel):
     log: str
     external_log: str
     cloud_db: str
+    user_status: str
 
 
 
@@ -145,6 +146,10 @@ def is_user_in_environment(env: str) -> bool:
 def check_if_data_exists(user: str) -> bool:
     return user in ["test", "aws", "gcp"]
 
+def is_user_disabled(data: UserRequest):
+    if UserRequest.user_status == "not_active":
+        return data.username
+
 
 @app.post("/get-user")
 def get_user(data: UserRequest):
@@ -206,6 +211,14 @@ def post_get_user_test(data: UserRequest):
 
 @app.post("/post-data-to-cloud")
 def sync_data_to_cloud(data: UserRequest):
+    user = fake_db.get(data.cloud_db.lower())
+    if not user:
+        raise HTTPException(status_code=404, detail="Failed to send data")
+    return user
+
+
+@app.post("/post-data-to-multi-clouds")
+def sync_data_to_multi_cloud(data: UserRequest):
     user = fake_db.get(data.cloud_db.lower())
     if not user:
         raise HTTPException(status_code=404, detail="Failed to send data")

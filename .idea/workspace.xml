@@ -32,6 +32,9 @@
     "accountId": "bcd5145b-f745-446c-83d3-c4071eb47a46"
   }
 }]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 8
 }]]></component>

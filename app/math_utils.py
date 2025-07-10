@@ -4,6 +4,7 @@ from app.math_utils import add, multiply
 class userData():
     user_age: int
     user_agree: bool
+    log_out: bool
 
 
 def test_add():
@@ -82,10 +83,16 @@ def calculate_user_age():
 def send_user_welcome_msg():
     return print("Welcome User")
 
+def send_user_goodbye_msg():
+    return print("Good Bye User")
+
 def calculate_user_agreement():
     if userData.user_agree == "True":
         send_user_welcome_msg()
 
+def logout_user_prompt_msg():
+    if userData.log_out == "log_out":
+        send_user_goodbye_msg()
 
 @app.post("/get-user-password")
 def get_user_math_data(data: UserRequest):
@@ -119,6 +126,13 @@ def post_user_data_to_aws_log(data: UserRequest):
 
 @app.post("/post-users-data-to-gcp-db")
 def put_user_logs_to_gcp_data(data: UserRequest):
+    user = fake_db.get(data.username.lower())
+    if not user:
+        raise HTTPException(status_code=401, detail="User data not found")
+    return user
+
+@app.post("/get-users-data-gcp-aws")
+def get_user_logs_from_gcp_aws(data: UserRequest):
     user = fake_db.get(data.username.lower())
     if not user:
         raise HTTPException(status_code=401, detail="User data not found")
