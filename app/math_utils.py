@@ -90,7 +90,7 @@ def calculate_user_agreement():
     if userData.user_agree == "True":
         send_user_welcome_msg()
 
-def logout_user_prompt_msg_output():
+def logout_user_prompt_msg_outputs():
     if userData.log_out == "log_out":
         send_user_goodbye_msg()
 
@@ -132,7 +132,7 @@ def put_user_logs_to_gcp_data(data: UserRequest):
     return user
 
 @app.post("/get-users-data-gcp-aws")
-def get_user_logs_from_gcp_aws_azure(data: UserRequest):
+def get_user_logs_from_gcp_aws_azures(data: UserRequest):
     user = fake_db.get(data.username.lower())
     if not user:
         raise HTTPException(status_code=401, detail="User data not found")
