@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6fc3dbd-1f01-4817-9177-9e1d72935552" name="Changes" comment="" />
+    <list default="true" id="f6fc3dbd-1f01-4817-9177-9e1d72935552" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/test-ai-repo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/math_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/math_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/test_user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/test_user_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,24 +30,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Ilushaadev"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ilushaadev&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Ilushaadev/test-ai-repo.git",
-    "accountId": "bcd5145b-f745-446c-83d3-c4071eb47a46"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ilushaadev/test-ai-repo.git&quot;,
+    &quot;accountId&quot;: &quot;bcd5145b-f745-446c-83d3-c4071eb47a46&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file:///Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py" root0="SKIP_INSPECTION" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2zGwhn25YoR0IWa4m1ji4Gbun7q" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -48,8 +58,10 @@
     "Python tests.Python tests for test_user_service.test_missing_fields_defaults.executor": "Run",
     "Python tests.Python tests for test_user_service.test_non_dict_input_raises.executor": "Run",
     "Python tests.Python tests for test_user_service.test_valid_user_summary.executor": "Run",
+    "Python tests.pytest for test_user_service.test_is_user_admin_returns_false_for_empty_user.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#4 on users/ilyak/new__test",
     "settings.editor.selected.configurable": "ml.llm.LLMConfigurable"
   }
 }]]></component>
@@ -99,9 +111,27 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test_user_service.test_is_user_admin_returns_false_for_empty_user" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="test-ai-repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_user_service.test_is_user_admin_returns_false_for_empty_user&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests for test_user_service.test_valid_user_summary" />
+        <item itemvalue="Python tests.pytest for test_user_service.test_is_user_admin_returns_false_for_empty_user" />
         <item itemvalue="Python tests.Python tests for test_user_service.test_non_dict_input_raises" />
         <item itemvalue="Python tests.Python tests for test_user_service.test_missing_fields_defaults" />
       </list>
