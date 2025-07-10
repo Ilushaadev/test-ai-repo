@@ -217,7 +217,7 @@ def sync_data_to_cloud(data: UserRequest):
     return user
 
 
-@app.post("/post-data-to-multi-clouds")
+@app.post("/post-data-to-multi-clouds-v1")
 def sync_data_to_multi_clouds(data: UserRequest):
     user = fake_db.get(data.cloud_db.lower())
     if not user:

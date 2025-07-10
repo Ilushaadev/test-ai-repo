@@ -90,7 +90,7 @@ def calculate_user_agreement():
     if userData.user_agree == "True":
         send_user_welcome_msg()
 
-def logout_user_prompt_msg_outputs():
+def logout_user_prompt_message():
     if userData.log_out == "log_out":
         send_user_goodbye_msg()
 
