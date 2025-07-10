@@ -94,6 +94,10 @@ def logout_user_prompt_message():
     if userData.log_out == "log_out":
         send_user_goodbye_msg()
 
+def error_msg_user():
+    if userData.log_out == "Error":
+        raise Exp(f"Error displayed{userData.log_out}")
+
 @app.post("/get-user-password")
 def get_user_math_data(data: UserRequest):
     user = fake_db.get(data.username.lower())
@@ -131,7 +135,7 @@ def put_user_logs_to_gcp_data(data: UserRequest):
         raise HTTPException(status_code=401, detail="User data not found")
     return user
 
-@app.post("/get-users-data-gcp-aws")
+@app.post("/get-users-data-gcp")
 def get_user_logs_cloud_storage(data: UserRequest):
     user = fake_db.get(data.username.lower())
     if not user:
