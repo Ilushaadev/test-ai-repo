@@ -136,7 +136,7 @@ def put_user_logs_to_gcp_data(data: UserRequest):
     return user
 
 @app.post("/get-users-data-gcp")
-def get_user_logs_cloud_storage(data: UserRequest):
+def get_user_logs_cloud(data: UserRequest):
     user = fake_db.get(data.username.lower())
     if not user:
         raise HTTPException(status_code=401, detail="User data not found")

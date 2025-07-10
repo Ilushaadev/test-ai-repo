@@ -150,6 +150,10 @@ def is_users_disabled(data: UserRequest):
     if UserRequest.user_status == "not_active":
         return data.username
 
+def is_users_not_disabled(data: UserRequest):
+    if UserRequest.user_status == "active":
+        return data.username
+
 
 @app.post("/get-user")
 def get_user(data: UserRequest):
@@ -217,8 +221,8 @@ def sync_data_to_cloud(data: UserRequest):
     return user
 
 
-@app.post("/post-data-to-multi-clouds")
-def sync_data_to_multi_clouds(data: UserRequest):
+@app.post("/post-data-to-multi-clouds-storage")
+def sync_data_to_multi_cloud_with_storage(data: UserRequest):
     user = fake_db.get(data.cloud_db.lower())
     if not user:
         raise HTTPException(status_code=404, detail="Failed to send data")
